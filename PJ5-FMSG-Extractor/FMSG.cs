@@ -43,6 +43,18 @@ namespace PJ5_FMSG_Extractor
                     int blockLen = reader.ReadInt32();
                     int strSize = (textLen * 2) - 2;
                     string str = Encoding.Unicode.GetString(reader.ReadBytes(strSize)).Replace("\n", "{LF}");
+                    //Mod Spanish Table
+                    str = str.Replace("Á","À");
+                    str = str.Replace("á","à");
+                    str = str.Replace("í","î");
+                    str = str.Replace("ó","ô");
+                    str = str.Replace("ú","ù");
+                    str = str.Replace("Ó","Ö");
+                    str = str.Replace("Ú","Ü" );
+                    str = str.Replace("ñ","ö" );
+                    str = str.Replace("¿","Ê" );
+                    str = str.Replace("¡","ï");
+                    str = str.Replace("Í", "Ç");
                     int zeroes = blockLen - (8 + strSize);
                     reader.BaseStream.Position += zeroes;
                     result.Add(str);
