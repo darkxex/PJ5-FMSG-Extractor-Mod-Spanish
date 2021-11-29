@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A035152E-CF10-4375-BC88-B3EA59E2840F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PJ5_FMSG_Extractor</RootNamespace>
-    <AssemblyName>PJ5-FMSG-Extractor</AssemblyName>
+    <RootNamespace>PJ5_FMSG_Extractor_ESP</RootNamespace>
+    <AssemblyName>PJ5-FMSG-Extractor_ESP</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
