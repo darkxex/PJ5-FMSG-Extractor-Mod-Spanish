@@ -43,18 +43,7 @@ namespace PJ5_FMSG_Extractor
                     int blockLen = reader.ReadInt32();
                     int strSize = (textLen * 2) - 2;
                     string str = Encoding.Unicode.GetString(reader.ReadBytes(strSize)).Replace("\n", "{LF}");
-                    //Mod Spanish Table
-                    str = str.Replace("Á","À");
-                    str = str.Replace("á","à");
-                    str = str.Replace("í","î");
-                    str = str.Replace("ó","ô");
-                    str = str.Replace("ú","ù");
-                    str = str.Replace("Ó","Ö");
-                    str = str.Replace("Ú","Ü" );
-                    str = str.Replace("ñ","ö" );
-                    str = str.Replace("¿","Ê" );
-                    str = str.Replace("¡","ï");
-                    str = str.Replace("Í", "Ç");
+
                     int zeroes = blockLen - (8 + strSize);
                     reader.BaseStream.Position += zeroes;
                     result.Add(str);
@@ -97,6 +86,18 @@ namespace PJ5_FMSG_Extractor
                         reader.BaseStream.Position += zeroes;
 
                         text[i] = text[i].Replace("\r", "").Replace("{LF}", "\n");
+                        //Mod Spanish Table
+                        text[i] = text[i].Replace("Á", "À");
+                        text[i] = text[i].Replace("á", "à");
+                        text[i] = text[i].Replace("í", "î");
+                        text[i] = text[i].Replace("ó", "ô");
+                        text[i] = text[i].Replace("ú", "ù");
+                        text[i] = text[i].Replace("Ó", "Ö");
+                        text[i] = text[i].Replace("Ú", "Ü");
+                        text[i] = text[i].Replace("ñ", "ö");
+                        text[i] = text[i].Replace("¿", "Ê");
+                        text[i] = text[i].Replace("¡", "ï");
+                        text[i] = text[i].Replace("Í", "Ç");
                         writer.Write(text[i].Length + 1);
                         byte[] newStrBytes = Encoding.Unicode.GetBytes(text[i]);
                         int newBlockLen = 8 + newStrBytes.Length + zeroes;
